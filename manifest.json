@@ -1,0 +1,14 @@
+{
+  "name": "Coral Reef Viewer",
+  "short_name": "CoralReef",
+  "description": "Explore an interactive 3D coral reef in your browser",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#003366",
+  "theme_color": "#003366",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
+

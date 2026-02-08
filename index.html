@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/three.min.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/reef.js"></script>
+    <script src="shaders/EffectComposer.js"></script>
+    <script src="shaders/FilmShader.js"></script>
+    <script src="shaders/RenderPass.js"></script>
+    <script src="shaders/ShaderPass.js"></script>
+    <script src="shaders/UnrealBloomPass.js"></script>
+    <script src="shaders/CopyShader.js"></script>
+    <script src="shaders/LuminosityHighPassShader.js"></script>
+    <script src="shaders/FilmPass.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Coral Reef</title>
+    <style>
+        html,body { margin: 0; overflow: hidden; padding: 0; touch-action: none } 
+        canvas { display: block; }
+        
+
+        #mainInfo {
+        position: fixed;
+        height: 5%;
+        inset: 0;
+        background: rgba(0, 20, 40, 0.65);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        overflow-x: auto;
+        white-space: nowrap;
+        }
+        .coralBtn{
+          flex: 0 0 auto;
+        }
+
+        #infoButton {
+        width: 10%;
+        height: 70%;
+        background: #225577;
+        border-radius: 8px;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        }
+        #infoPanel {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 20, 40, 0.85);
+        color: #cce6ff;
+        padding: 16px 20px;
+        border-radius: 12px;
+        width: 320px;
+        display: none;
+        font-family: system-ui, sans-serif;
+        }
+
+        #infoPanel h2 {
+        margin: 0 0 6px;
+        font-size: 18px;
+        }
+
+        #infoPanel button {
+        margin-top: 10px;
+        background: #225577;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="mainInfo">
+  <button id = "infoButton">Show Overview</button>
+  <button class="coralBtn">Acropora Cervicornis</button>
+  <button class="coralBtn">Acropora Valenciennesi</button>
+  <button class="coralBtn">Astraea Fissicella Favistella</button>
+  <button class="coralBtn">Diploastrea Heliopora</button>
+  <button class="coralBtn">Distichopora Violacea</button>
+  <button class="coralBtn">Heliopora Coerulea</button>
+  <button class="coralBtn">Madrepora Humilis</button>
+  <button class="coralBtn">Merulina Rigida</button>
+  <button class="coralBtn">Psammocora Columna</button>
+  <button class="coralBtn">Stylaster Brochi</button>
+</div>
+<div id="infoPanel">
+  <h2 id="infoTitle"></h2>
+  <p id="infoDescription"></p>
+  <button id="infoClose">Close</button>
+</div>
+ <script>
+// Register the service worker
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./service-worker.js')
+.then(reg => console.log('Service worker registered:', reg))
+.catch(err => console.log('Service worker failed:', err));
+}
+</script>
+</body>
+</html>
+
